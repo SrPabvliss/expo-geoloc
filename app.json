@@ -9,12 +9,40 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.yourcompany.expotracking",
+      "infoPlist": {
+        "UIBackgroundModes": [
+          "location",
+          "fetch"
+        ],
+        "NSLocationWhenInUseUsageDescription": "La aplicación necesita acceso a la ubicación para rastreo cuando está en uso.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "La aplicación necesita acceso a la ubicación para rastreo en segundo plano.",
+        "NSLocationAlwaysUsageDescription": "La aplicación necesita acceso a la ubicación para rastreo en segundo plano."
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
+      },
+      "package": "com.yourcompany.expotracking",
+      "permissions": [
+        "ACCESS_BACKGROUND_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION",
+        "FOREGROUND_SERVICE",
+        "WAKE_LOCK",
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.ACCESS_BACKGROUND_LOCATION",
+        "android.permission.FOREGROUND_SERVICE",
+        "android.permission.FOREGROUND_SERVICE_LOCATION"
+      ],
+      "config": {
+        "googleMaps": {
+          "backgroundEnabled": true
+        }
       }
     },
     "web": {
@@ -32,10 +60,28 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
+      ],
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "La aplicación necesita acceso a la ubicación para rastreo.",
+          "locationAlwaysPermission": "La aplicación necesita acceso a la ubicación en segundo plano.",
+          "locationWhenInUsePermission": "La aplicación necesita acceso a la ubicación mientras está en uso.",
+          "isIosBackgroundLocationEnabled": true,
+          "isAndroidBackgroundLocationEnabled": true
+        }
       ]
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "7874dd31-5522-461b-ba67-f3bdfe4875a6"
+      }
     }
   }
 }
